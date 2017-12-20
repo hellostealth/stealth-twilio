@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    stealth-twilio-sms (0.9.0)
+    stealth-twilio (0.9.0)
       stealth (~> 0.9)
       twilio-ruby (~> 5.5)
 
@@ -60,7 +60,7 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.0)
       tilt (~> 2.0)
-    stealth (0.9.7)
+    stealth (0.9.8)
       activesupport (~> 5.1)
       multi_json (~> 1.12)
       puma (~> 3.10)
@@ -70,7 +70,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
-    twilio-ruby (5.5.1)
+    twilio-ruby (5.6.0)
       faraday (~> 0.9)
       jwt (>= 1.5, <= 2.5)
       nokogiri (>= 1.6, < 2.0)
@@ -84,7 +84,7 @@ DEPENDENCIES
   rack-test (~> 0.7)
   rspec (~> 3.6)
   rspec_junit_formatter (~> 0.3)
-  stealth-twilio-sms!
+  stealth-twilio!
 
 BUNDLED WITH
-   1.15.3
+   1.16.0
