@@ -45,7 +45,7 @@ module Stealth
         private
 
           def check_text_length
-            if reply['text'].size > 1600
+            if reply['text'].present? && reply['text'].size > 1600
               raise(ArgumentError, "Text messages must be 1600 characters or less.")
             end
           end
