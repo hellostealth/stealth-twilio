@@ -1,6 +1,6 @@
 # Stealth Twilio SMS
 
-The Stealth Twilio SMS driver adds the ability to build your bot using Twilio's SMS service.
+The [Stealth](https://github.com/hellostealth/stealth) Twilio SMS driver adds the ability to build your bot using Twilio's SMS service.
 
 ## Supported Reply Types
 
