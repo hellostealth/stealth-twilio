@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name = 'stealth-twilio'
   s.summary = 'Stealth Twilio SMS driver'
   s.description = 'Twilio SMS driver for Stealth.'
-  s.homepage = 'https://github.com/whoisblackops/stealth-twilio'
+  s.homepage = 'https://github.com/hellostealth/stealth-twilio'
   s.licenses = ['MIT']
   s.version = version
   s.author = 'Mauricio Gomes'
