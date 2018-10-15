@@ -2,6 +2,8 @@
 
 The [Stealth](https://github.com/hellostealth/stealth) Twilio SMS driver adds the ability to build your bot using Twilio's SMS service.
 
+[![Gem Version](https://badge.fury.io/rb/stealth-twilio.svg)](https://badge.fury.io/rb/stealth-twilio)
+
 ## Supported Reply Types
 
 * Text
