@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    stealth-twilio (0.9.4)
+    stealth-twilio (0.9.5)
       stealth (< 2.0)
       twilio-ruby (~> 5.5)
 
@@ -41,7 +41,7 @@ GEM
     erubi (1.7.1)
     faraday (0.15.3)
       multipart-post (>= 1.2, < 3)
-    i18n (1.1.0)
+    i18n (1.1.1)
       concurrent-ruby (~> 1.0)
     jwt (2.1.0)
     loofah (2.2.2)
@@ -110,7 +110,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
-    twilio-ruby (5.14.1)
+    twilio-ruby (5.15.0)
       faraday (~> 0.9)
       jwt (>= 1.5, <= 2.5)
       nokogiri (>= 1.6, < 2.0)
@@ -127,4 +127,4 @@ DEPENDENCIES
   stealth-twilio!
 
 BUNDLED WITH
-   1.16.1
+   1.16.3
