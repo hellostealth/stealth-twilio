@@ -38,6 +38,12 @@ module Stealth
           format_response({ body: reply['text'], media_url: reply['video_url'] })
         end
 
+        def file
+          check_text_length
+
+          format_response({ body: reply['text'], media_url: reply['file_url'] })
+        end
+
         def delay
 
         end
