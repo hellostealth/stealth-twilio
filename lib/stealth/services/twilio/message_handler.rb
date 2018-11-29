@@ -15,7 +15,11 @@ module Stealth
         end
 
         def coordinate
-          Stealth::Services::HandleMessageJob.perform_async('twilio', params, {})
+          Stealth::Services::HandleMessageJob.perform_async(
+            'twilio',
+            params,
+            headers
+          )
 
           # Relay our acceptance
           [204, 'No Content']
