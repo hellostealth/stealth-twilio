@@ -4,9 +4,7 @@
 module Stealth
   module Services
     module Twilio
-
       class MessageHandler < Stealth::Services::BaseMessageHandler
-
         attr_reader :service_message, :params, :headers
 
         def initialize(params:, headers:)
@@ -31,20 +29,13 @@ module Stealth
           service_message.message = params['Body']
 
           # Check for media attachments
-          attachment_count = 0
-          begin
-            attachment_count = Integer(params['NumMedia'])
-          rescue ArgumentError
+          attachment_count = params['NumMedia'].to_i
 
-          end
-
-          if attachment_count > 0
-            for i in (0..attachment_count) do
-              service_message.attachments << {
-                type: params["MediaContentType#{i}"],
-                url: params["MediaUrl#{i}"]
-              }
-            end
+          attachment_count.times do |i|
+            service_message.attachments << {
+              type: params["MediaContentType#{i}"],
+              url: params["MediaUrl#{i}"]
+            }
           end
 
           service_message
