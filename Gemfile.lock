@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    stealth-twilio (0.11.0)
+    stealth-twilio (0.11.2)
       stealth (< 2.0)
       twilio-ruby (~> 5.5)
 
