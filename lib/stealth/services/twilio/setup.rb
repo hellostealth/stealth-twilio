@@ -11,7 +11,10 @@ module Stealth
 
         class << self
           def trigger
-            Stealth::Logger.l(topic: "twilio", message: "There is no setup needed!")
+            Stealth::Logger.l(
+              topic: "twilio",
+              message: "There is no setup needed!"
+            )
           end
         end
 
