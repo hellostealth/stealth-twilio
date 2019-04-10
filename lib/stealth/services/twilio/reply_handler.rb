@@ -109,7 +109,7 @@ module Stealth
               when 'url'
                 "#{button['text']}: #{button['url']}"
               when 'payload'
-                "To #{button['text']}: Text #{button['payload'].upcase}"
+                "To #{button['text'].downcase}: Text #{button['payload'].upcase}"
               when 'call'
                 "#{button['text']}: #{button['phone_number']}"
               else # Don't raise for unsupported buttons
