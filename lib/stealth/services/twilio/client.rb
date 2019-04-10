@@ -10,7 +10,6 @@ require 'stealth/services/twilio/setup'
 module Stealth
   module Services
     module Twilio
-
       class Client < Stealth::Services::BaseClient
 
         attr_reader :twilio_client, :reply
@@ -27,11 +26,13 @@ module Stealth
           return true if reply.blank?
 
           response = twilio_client.messages.create(reply)
-          Stealth::Logger.l(topic: "twilio", message: "Transmitting. Response: #{response.status}: #{response.error_message}")
+          Stealth::Logger.l(
+            topic: "twilio",
+            message: "Transmitting. Response: #{response.status}: #{response.error_message}"
+          )
         end
 
       end
-
     end
   end
 end
