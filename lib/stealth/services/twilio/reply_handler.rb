@@ -26,7 +26,7 @@ module Stealth
           if suggestions.present?
             translated_reply = [
               translated_reply,
-              'Reply with one of the following:'
+              'Reply with:'
             ].join("\n\n")
 
             suggestions.each_with_index do |suggestion, i|
