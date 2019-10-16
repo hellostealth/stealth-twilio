@@ -17,8 +17,16 @@ module Stealth
         def initialize(reply:)
           @reply = reply
           account_sid = Stealth.config.twilio.account_sid
+          api_key = Stealth.config.twilio.api_key
           auth_token = Stealth.config.twilio.auth_token
-          @twilio_client = ::Twilio::REST::Client.new(account_sid, auth_token)
+
+          if api_key.present?
+            @twilio_client = ::Twilio::REST::Client.new(
+              api_key, auth_token, account_sid
+            )
+          else
+            @twilio_client = ::Twilio::REST::Client.new(account_sid, auth_token)
+          end
         end
 
         def transmit
