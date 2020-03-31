@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.author = 'Mauricio Gomes'
   s.email = 'mauricio@edge14.com'
 
-  s.add_dependency 'stealth', '~> 2.1'
+  s.add_dependency 'stealth', '~> 2.2'
   s.add_dependency 'twilio-ruby', '~> 5.5'
 
   s.add_development_dependency 'rspec', '~> 3.6'
