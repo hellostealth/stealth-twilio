@@ -45,6 +45,8 @@ module Stealth
               raise Stealth::Errors::UserOptOut
             when /30004/ # Message blocked
               raise Stealth::Errors::UserOptOut
+            when /21211/ # Invalid 'To' Phone Number
+              raise Stealth::Errors::InvalidSessionID
             when /30003/ # Unreachable destination handset
               raise Stealth::Errors::InvalidSessionID
             when /30005/ # Unknown destination handset
