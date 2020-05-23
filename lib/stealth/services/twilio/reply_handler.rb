@@ -18,6 +18,11 @@ module Stealth
           check_text_length
 
           format_response({ body: reply['text'] })
+
+          if reply['suggestions'].present?
+            sms_suggestions = generate_suggestions(suggestions: reply['suggestions'])
+            template["message"]["quick_replies"] = fb_suggestions
+          end
         end
 
         def image
@@ -59,6 +64,20 @@ module Stealth
           def format_response(response)
             sender_info = { from: Stealth.config.twilio.from_phone, to: recipient_id }
             response.merge(sender_info)
+          end
+
+          def generate_suggestions(suggestions:)
+            quick_replies = suggestions.collect do |suggestion|
+
+              quick_reply = {
+                "content_type" => "text",
+                "title" => suggestion["text"]
+              }
+
+              quick_reply
+            end
+
+            quick_replies
           end
 
       end
