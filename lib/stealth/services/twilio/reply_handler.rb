@@ -17,14 +17,6 @@ module Stealth
         def text
           check_text_length
 
-
-          template = unstructured_template
-          template['message']['text'] = reply['text']
-
-          if reply['suggestions'].present?
-            sms_suggestions = generate_suggestions(suggestions: reply['suggestions'])
-            template["message"]["quick_replies"] = sms_suggestions
-          end
           format_response({ body: reply['text'] })
         end
 
@@ -67,29 +59,6 @@ module Stealth
           def format_response(response)
             sender_info = { from: Stealth.config.twilio.from_phone, to: recipient_id }
             response.merge(sender_info)
-          end
-
-          def unstructured_template
-            {
-              "recipient" => {
-                "id" => recipient_id
-              },
-              "message" => { }
-            }
-          end
-
-          def generate_suggestions(suggestions:)
-            quick_replies = suggestions.collect do |suggestion|
-
-              quick_reply = {
-                "content_type" => "text",
-                "title" => suggestion["text"]
-              }
-
-              quick_reply
-            end
-
-            quick_replies
           end
 
       end
