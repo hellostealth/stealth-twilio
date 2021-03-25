@@ -26,6 +26,7 @@ module Stealth
         def process
           @service_message = ServiceMessage.new(service: 'twilio')
           service_message.sender_id = params['From']
+          service_message.target_id = params['To']
           service_message.message = params['Body']
 
           # Check for media attachments
