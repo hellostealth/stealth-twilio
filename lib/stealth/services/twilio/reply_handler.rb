@@ -74,6 +74,12 @@ module Stealth
           format_response({ body: reply['text'], media_url: reply['file_url'] })
         end
 
+        # def location
+        #   check_text_length
+        #   persistent_action: ['geo:37.787890,-122.391664|375 Beale St']
+        #   format_response({ body: reply['text'], latitude: reply['latitude'], longitude: reply['longitude'] })
+        # end
+
         def delay
 
         end
