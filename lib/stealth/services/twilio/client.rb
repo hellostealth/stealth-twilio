@@ -5,6 +5,8 @@ require 'twilio-ruby'
 
 require 'stealth/services/twilio/message_handler'
 require 'stealth/services/twilio/reply_handler'
+require 'stealth/services/twilio/twilio_service_message'
+
 require 'stealth/services/twilio/setup'
 
 module Stealth
