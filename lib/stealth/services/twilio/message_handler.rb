@@ -28,6 +28,7 @@ module Stealth
           service_message.sender_id = params['From']
           service_message.target_id = params['To']
           service_message.message = params['Body']
+          service_message.location = { latitude: params['Latitude'], longitude: params['Longitude'] }
 
           # Check for media attachments
           attachment_count = params['NumMedia'].to_i
