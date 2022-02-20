@@ -42,9 +42,9 @@ module Stealth
             when /21211/ # Invalid 'To' Phone Number
               raise Stealth::Errors::InvalidSessionID
             when /21612/ # 'To' phone number is not currently reachable via SMS
-              raise Stealth::Errors::UserOptOut
+              raise Stealth::Errors::InvalidSessionID
             when /21614/ # 'To' number is not a valid mobile number
-              raise Stealth::Errors::UserOptOut
+              raise Stealth::Errors::InvalidSessionID
             when /30003/ # Unreachable destination handset
               raise Stealth::Errors::InvalidSessionID
             when /30004/ # Message Blocked
@@ -52,7 +52,7 @@ module Stealth
             when /30005/ # Unknown destination handset
               raise Stealth::Errors::InvalidSessionID
             when /30006/ # Landline or unreachable carrier
-              raise Stealth::Errors::UserOptOut
+              raise Stealth::Errors::InvalidSessionID
             when /30007/ # Message filtered
               raise Stealth::Errors::MessageFiltered
             when /30008/ # Unknown error 🤷‍♂️
