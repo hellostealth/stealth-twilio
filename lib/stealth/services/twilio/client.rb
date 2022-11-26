@@ -34,7 +34,7 @@ module Stealth
           return true if reply.blank?
 
           begin
-            response = twilio_client.messages.create(reply)
+            response = twilio_client.messages.create(**reply)
           rescue ::Twilio::REST::RestError => e
             case e.message
             when /21610/ # Attempt to send to unsubscribed recipient
