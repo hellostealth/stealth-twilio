@@ -6,7 +6,7 @@ module Stealth
     module Twilio
       class ReplyHandler < Stealth::Services::BaseReplyHandler
 
-        # ALPHA_ORDINALS = ('A'..'Z').to_a.freeze
+        ALPHA_ORDINALS = ('A'..'Z').to_a.freeze
 
         attr_reader :recipient_id, :reply, :translated_reply
 
@@ -114,7 +114,7 @@ module Stealth
               when 'url'
                 "#{button['text']}: #{button['url']}"
               when 'payload'
-                "Para #{button['text'].downcase}: Texto #{button['payload'].upcase}"
+                "To #{button['text'].downcase}: Text #{button['payload'].upcase}"
               when 'call'
                 "#{button['text']}: #{button['phone_number']}"
               else # Don't raise for unsupported buttons
