@@ -6,9 +6,9 @@ module Stealth
     module Twilio
       class ReplyHandler < Stealth::Services::BaseReplyHandler
 
-        ALPHA_ORDINALS = ('A'..'Z').to_a.freeze
+        # ALPHA_ORDINALS = ('A'..'Z').to_a.freeze
 
-        attr_reader :recipient_id, :reply
+        attr_reader :recipient_id, :reply, :translated_reply
 
         def initialize(recipient_id: nil, reply: nil)
           @recipient_id = recipient_id
@@ -18,20 +18,20 @@ module Stealth
         def text
           check_text_length
 
-          translated_reply = reply['text']
+          @translated_reply = reply['text']
 
           suggestions = generate_suggestions(suggestions: reply['suggestions'])
           buttons = generate_buttons(buttons: reply['buttons'])
 
           if suggestions.present?
-            translated_reply = [
-              translated_reply,
+            @translated_reply = [
+              @translated_reply,
               'Reply with:'
             ].join("\n\n")
 
             suggestions.each_with_index do |suggestion, i|
-              translated_reply = [
-                translated_reply,
+              @translated_reply = [
+                @translated_reply,
                 "\"#{ALPHA_ORDINALS[i]}\" for #{suggestion}"
               ].join("\n")
             end
@@ -39,14 +39,14 @@ module Stealth
 
           if buttons.present?
             buttons.each do |button|
-              translated_reply = [
-                translated_reply,
+              @translated_reply = [
+                @translated_reply,
                 button
               ].join("\n\n")
             end
           end
 
-          format_response({ body: translated_reply })
+          format_response({ body: @translated_reply })
         end
 
         def image
@@ -71,6 +71,11 @@ module Stealth
           check_text_length
 
           format_response({ body: reply['text'], media_url: reply['file_url'] })
+        end
+
+        def location
+          check_text_length
+          format_response({ body: reply['text'], persistent_action: ["geo:#{reply['latitude']},#{reply['longitude']}|#{reply['label']}"] })
         end
 
         def delay
@@ -109,7 +114,7 @@ module Stealth
               when 'url'
                 "#{button['text']}: #{button['url']}"
               when 'payload'
-                "To #{button['text'].downcase}: Text #{button['payload'].upcase}"
+                "Para #{button['text'].downcase}: Texto #{button['payload'].upcase}"
               when 'call'
                 "#{button['text']}: #{button['phone_number']}"
               else # Don't raise for unsupported buttons
