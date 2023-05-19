@@ -6,7 +6,7 @@ module Stealth
     module Twilio
       class ReplyHandler < Stealth::Services::BaseReplyHandler
 
-        # ALPHA_ORDINALS = ('A'..'Z').to_a.freeze
+        ALPHA_ORDINALS = ('A'..'Z').to_a.freeze
 
         attr_reader :recipient_id, :reply, :translated_reply
 
